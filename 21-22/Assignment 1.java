@@ -17,6 +17,7 @@ public class Solution {
     public static Map<String, Integer> countSubstringOccurrences(String s, int k) {
         Map<String, Integer> res = new HashMap<String, Integer>();
         if (k > s.length()) {return res;}
+		
         for (int i = 0; i <= s.length() - k; i++) {
             String substring = s.substring(i, i+k);
             if (res.get(substring) == null) {
