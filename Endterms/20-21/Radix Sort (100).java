@@ -11,22 +11,19 @@ class Solution {
    */
   static List<String> sortStudentId(List<String> SID) {
     if (SID == null) {return null;}
-    if (SID.isEmpty()) {return new ArrayList<String>();}
     return radix(SID, 0);  
   }
 
   static List<String> radix(List<String> SID, int sort_idx) {
     if (SID.isEmpty()) {return new ArrayList<String>();}
 
-    if (SID.size() == 1) {
-      List<String> l = new ArrayList<>();
-      l.add(SID.get(0));  
-      return l;
+    if (SID.size() == 1 || sort_idx == SID.get(0).length()) {
+      return SID;
     }
 
     List<List<String>> buckets = new ArrayList<>();
     for (int i = 0; i < 26; i++) {
-      buckets.add(new ArrayList<>());
+      buckets.add(new ArrayList<String>());
     }
 
     for (String s : SID) {
